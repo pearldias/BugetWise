@@ -13,7 +13,7 @@ export const Sidebar = [
     {
         title: 'Transactions',
         icon: <AccountBalanceIcon />,
-        link: '/Transactions'
+        link: '/Transaction'
     },
     {
         title: 'Accounts',

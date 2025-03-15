@@ -1,49 +1,67 @@
 import { useState } from "react";
 import { auth } from "../firebase_config";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+import "../Auth.css";
 
-const Signup = () => {
+const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
 
-  const navigate = useNavigate(); // Initialize the navigate hook
+  const navigate = useNavigate();
 
   const handleSignup = async (e) => {
     e.preventDefault();
+
+    if (password !== confirmPassword) {
+      setError("Passwords do not match.");
+      return;
+    }
+
     try {
       await createUserWithEmailAndPassword(auth, email, password);
       alert("Account created successfully!");
-      navigate("/homepage"); // Navigate to homepage on success
+      navigate("/homepage");
     } catch (err) {
       setError(err.message);
     }
   };
 
   return (
-    <div>
-      <h2>Sign Up</h2>
-      {error && <p style={{ color: "red" }}>{error}</p>}
+    <div className="auth-container">
+      <h2 className="auth-title">Create an Account</h2>
+      {error && <p className="auth-error">{error}</p>}
       <form onSubmit={handleSignup}>
-        <input 
-          type="email" 
-          placeholder="Email" 
-          value={email} 
-          onChange={(e) => setEmail(e.target.value)} 
-          required 
+        <input
+          type="email"
+          placeholder="Email"
+          className="auth-input"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
         />
-        <input 
-          type="password" 
-          placeholder="Password" 
-          value={password} 
-          onChange={(e) => setPassword(e.target.value)} 
-          required 
+        <input
+          type="password"
+          placeholder="Password"
+          className="auth-input"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
         />
-        <button type="submit">Sign Up</button>
+        <input
+          type="password"
+          placeholder="Confirm Password"
+          className="auth-input"
+          value={confirmPassword}
+          onChange={(e) => setConfirmPassword(e.target.value)}
+        />
+        <button className="auth-button" type="submit">Sign up</button>
       </form>
+      <p className="auth-text">
+        Already have an account? <Link to="/signin">Sign in</Link>
+      </p>
     </div>
   );
 };
 
-export default Signup;
+export default SignUp;

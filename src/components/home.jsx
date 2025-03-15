@@ -1,20 +1,21 @@
-
+import React from "react";
 import { Link } from "react-router-dom";
+import "../Home.css";
 
 const Home = () => {
   return (
     <div className="home-container">
-      <div className="content-box">
-        <h1>Welcome to <span>BudgetWise</span></h1>
-        <p>Manage your budget efficiently</p>
-        <div className="button-group">
-          <Link to="/signin">
-            <button className="signin-btn">Sign In</button>
-          </Link>
-          <Link to="/signup">
-            <button className="signup-btn">Sign Up</button>
-          </Link>
-        </div>
+      <h1 className="home-title">Save Money to Save Future</h1>
+      <p className="home-subtitle">
+        Manage your budget efficiently and plan your financial future wisely.
+      </p>
+      <div className="button-container">
+        <Link to="/signin">
+          <button className="button signin-button">Sign In</button>
+        </Link>
+        <Link to="/signup">
+          <button className="button signup-button">Sign Up</button>
+        </Link>
       </div>
     </div>
   );
