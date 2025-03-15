@@ -9,6 +9,8 @@ import Homepage from "./homepage";
 import "./App.css";
 import Transaction from './Transaction';
 import Layout from './Layout';
+import Accounts from './Accounts';
+import Budgets from './Budgets';
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -29,6 +31,8 @@ const App = () => {
           {/* ✅ Changed Homepage → Home */}
           <Route path="Homepage" element={<Homepage />} />
           <Route path="Transaction" element={<Transaction />} />
+          <Route path="Accounts" element={<Accounts/>} />
+          <Route path="Budgets" element={<Budgets/>} />
         </Route>
 
         {/* Authentication Routes */}
