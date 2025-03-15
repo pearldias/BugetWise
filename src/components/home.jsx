@@ -1,23 +1,4 @@
-// import { Link } from "react-router-dom";
 
-// const Home = () => {
-//   return (
-//     <div className="home-container">
-//       <h1>Welcome to BudgetWise</h1>
-//       <p>Manage your budget efficiently</p>
-//       <div className="buttons">
-//         <Link to="/signin">
-//           <button className="signin-btn">Sign In</button>
-//         </Link>
-//         <Link to="/signup">
-//           <button className="signup-btn">Sign Up</button>
-//         </Link>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Home;
 import { Link } from "react-router-dom";
 
 const Home = () => {

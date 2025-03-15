@@ -42,8 +42,8 @@
 } */
 /* Global Styling */
 body {
-  background-color: #1e1e1e;
-  color: white;
+  background-color: #fff7f7;
+  color: rgb(20, 19, 19);
   font-family: "Arial", sans-serif;
   text-align: center;
   margin: 0;
@@ -116,4 +116,72 @@ button {
 
 button:hover {
   opacity: 0.8;
+}
+
+.sidebar {
+  position: fixed;
+  top: 60px; /* Below the AppBar */
+  left: 0;
+  width: 220px;
+  height: 100vh; /* Full height */
+  background-color: #4B5563; /* Gray-700 */
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 20px;
+}
+
+.sidebar li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #fff;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+.sidebar li:hover {
+  background-color: #374151; /* Darker gray */
+}
+
+
+
+.sidebar.hidden {
+  transform: translateX(-100%);
+}
+
+
+.APPBAR {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #1E3A8A; /* Blue-600 */
+  color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 10px 9px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 10; /* Ensures it's above other content */
+}
+
+
+.MENU_ICON {
+  cursor: pointer;
+  margin-right: 16px;
+  font-size: 30px;
+}
+.APPBAR h1 {
+  margin-left: auto; /* Pushes "BudgetWise" to the right */
+  font-size: 1rem; /* Adjust text size */
+  font-weight: bold;
+  padding-right: 20px;
+  color: #fff; /* Ensures visibility */
+}
+
+.main-content {
+  margin-top: 60px; /* Adjust based on AppBar height */
+  padding: 20px;
+  background-color: #F3F4F6; /* Gray-100 */
+  min-height: 100vh;
 }
