@@ -9,6 +9,7 @@ const SignUp = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false); // Added loading state
 
   const navigate = useNavigate();
 
@@ -20,12 +21,15 @@ const SignUp = () => {
       return;
     }
 
+    setLoading(true); // Start loading
     try {
       await createUserWithEmailAndPassword(auth, email, password);
       alert("Account created successfully!");
       navigate("/homepage");
     } catch (err) {
       setError(err.message);
+    } finally {
+      setLoading(false); // Stop loading regardless of success or failure
     }
   };
 
@@ -55,7 +59,9 @@ const SignUp = () => {
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}
         />
-        <button className="auth-button" type="submit">Sign up</button>
+        <button className="auth-button" type="submit" disabled={loading}>
+          {loading ? "Creating Account..." : "Sign up"}
+        </button>
       </form>
       <p className="auth-text">
         Already have an account? <Link to="/signin">Sign in</Link>

@@ -8,18 +8,20 @@ const Layout = () => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const navigate = useNavigate();
 
-    const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
+    const toggleSidebar = () => {
+        setIsSidebarOpen(!isSidebarOpen);
+    };
 
-    const handleClick = (link) => navigate(link);
+    const handleClick = (link) => {
+        navigate(link);
+        setIsSidebarOpen(false); // Close sidebar when navigating
+    };
 
     return (
         <div className="flex flex-col h-screen">
             {/* AppBar */}
             <div className="APPBAR">
-                <MenuIcon
-                    className="MENU_ICON"
-                    onClick={toggleSidebar}
-                />
+                <MenuIcon className="MENU_ICON" onClick={toggleSidebar} />
                 <h1>BudgetWise</h1>
             </div>
 
@@ -37,9 +39,9 @@ const Layout = () => {
                     ))}
                 </ul>
 
-                {/* Main Content (Dynamic Content Here) */}
-                <div className="flex-grow p-6 bg-gray-100 main-content">
-                    <Outlet />  {/* Renders the current route's content */}
+                {/* Main Content */}
+                <div className={`flex-grow p-6 bg-gray-100 main-content ${isSidebarOpen ? 'shift' : ''}`}>
+                    <Outlet /> {/* Renders the current route's content */}
                 </div>
             </div>
         </div>

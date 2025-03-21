@@ -34,7 +34,7 @@ body {
   left: 0;
   width: 220px;
   height: 100vh;
-  background-color: #434343; /* Gray-700 */
+  background-color: #d3e7f1; /* Gray-700 */
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -64,7 +64,7 @@ body {
 }
 
 .sidebar li:hover {
-  background-color: #374151; /* Darker gray */
+  background-color: #bed0ed; /* Darker gray */
 }
 
 /* AppBar */
@@ -99,10 +99,17 @@ body {
 /* Main Content */
 .main-content {
   flex: 1;
-  width: 100%;
+  width: 100vw;
   min-height: 100vh;  /* Ensures full viewport height */
-  background: gray; /* Adjust background as needed */
-  color: #fff;  /* For readability */
-  padding: 20px; /* Add padding to prevent content sticking to edges */
+  background: rgb(255, 255, 255); /* Adjust background as needed */
+  color: #000000;  /* For readability */
+  padding-top: 100px;
+  transition: transform 0.3s ease-in-out;
+  /* Add padding to prevent content sticking to edges */
 }
 
+.main-content.shift{
+  transform: translateX(220px);
+  
+  
+}
